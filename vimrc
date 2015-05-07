@@ -67,7 +67,7 @@ set writebackup
 
 "toggle between number and relativenumber{{{
 function! ToggleNumber()
-    if(&relativenumber  1)
+    if(&relativenumber==  1)
         set norelativenumber
         set number
     else
@@ -119,7 +119,7 @@ vnoremap jk <esc>
 inoremap jk <esc>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q!<CR>
-nnoremap <leader>wq :wq!<CR>
+nnoremap <leader>wq :wq<CR>
 nnoremap <leader>x "+x
 nnoremap <leader>p "+p
 nnoremap <leader>y "+y
