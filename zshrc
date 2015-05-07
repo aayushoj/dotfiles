@@ -90,3 +90,5 @@ alias clr="clear"
 alias gpic="gpicview"
 alias h="cd ~"
 alias d="cd ~/dotfiles"
+alias fire="firefox"
+
