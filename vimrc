@@ -1,6 +1,9 @@
-" TODO: this may not be in the correct place. It is intended to allow overriding <Leader>.
+"Suggestions and future improvements {{{
+"}}}
 
 "  Mapping Leader and other issues----------{{{
+"  These things are there as they are needed for plugin configurations or so i
+"  believe
 let mapleader=","
 filetype plugin indent on
 set nocp
@@ -21,31 +24,10 @@ if filereadable(expand("~/.vim/vundles.vim"))
 endif
 " }}}
 
-" Vimscript file settings ---------------------- {{{
-augroup filetype_vim
-    autocmd!
-    autocmd FileType vim setlocal  foldmethod=marker
-    autocmd FileType vim setlocal  foldlevel=0
-augroup END
-" }}}
-
 "set colorscheme{{{
+"Kept it separate as most of people who will use my settings will care only
+"about colorscheme
 colo badwolf
-"}}}
-
-"code folding{{{
-set foldenable              " enable folding
-set foldlevelstart=0        " close all folds by default
-set foldmethod=indent       " fold based on indent level
-nnoremap <space> za
-" space open/closes folds earlier i did mistake of placing it with mapping
-" }}}
-
-"  Search {{{
-set incsearch               " search as characters are entered
-set hlsearch                " highlight matches
-set showmatch               " highlight matching [{{{()}}}]
-set showcmd                 " show command in bottom bar
 "}}}
 
 "edit vimrc/zshrc and load vimrc bindings{{{
@@ -64,6 +46,8 @@ set backupskip=/tmp/*,/private/tmp/*
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set writebackup
 "}}}
+
+"Functions {{{
 
 "toggle between number and relativenumber{{{
 function! ToggleNumber()
@@ -92,7 +76,9 @@ endfunction
 nnoremap <F3> :call StripTrailingWhitespaces()<CR>
 "}}}
 
-"My costumisation started{{{
+"}}}
+
+"My costumisations {{{
 "set mouse=a "enable mouse
 "I won't enable mouse for a good practice of vim motion commands
 set shiftwidth=4
@@ -107,16 +93,37 @@ filetype indent on          " load filetype-specific indent files
 set wildmenu                " visual autocomplete for command menu
 set lazyredraw              " redraw only when we need to.
 set vb
+
+"code folding{{{
+set foldenable              " enable folding
+set foldlevelstart=0        " close all folds by default
+set foldmethod=indent       " fold based on indent level
+" }}}
+
+"  Search settings {{{
+
+set incsearch               " search as characters are entered
+set hlsearch                " highlight matches
+set showmatch               " highlight matching [{{{()}}}]
+set showcmd                 " show command in bottom bar
+
 "}}}
 
-" Keymaps{{{
+"}}}
+
+"Keymaps {{{
+
+" Main Keymaps{{{
+
 nnoremap <C-h> <C-w><C-h>
+nnoremap <space> za
+" space open/closes folds earlier i did mistake of placing it with mapping
 nnoremap <C-k> <C-w><C-k>
 nnoremap <C-j> <C-w><C-j>
 nnoremap <C-l> <C-w><C-l>
 nnoremap <leader><space> :nohlsearch<CR>
-vnoremap jk <esc>
-inoremap jk <esc>
+vnoremap jj <esc>
+inoremap jj <esc>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q!<CR>
 nnoremap <leader>wq :wq<CR>
@@ -127,10 +134,16 @@ vnoremap <leader>x "+x
 vnoremap <leader>p "+p
 vnoremap <leader>y "+y
 nnoremap ; :
+nnoremap <leader>hs :sp<CR>
+nnoremap <leader>vs :vsp<CR>
+nnoremap <leader>o o<esc>k
+nnoremap X v$x
+nnoremap Y v$y
 
 "}}}
 
 "These mappings are there to train my fingers to use my customised settings {{{
+
 inoremap <esc> <nop>
 vnoremap <esc> <nop>
 inoremap <Right> <nop>
@@ -143,7 +156,20 @@ cnoremap w nop<CR>
 "nnoremap <Left> <nop>
 "nnoremap <Up> <nop>
 "nnoremap <Down> <nop>
+
 "}}}
+
+"}}}
+
+" File specific settings {{{
+
+" Vimscript file settings ---------------------- {{{
+augroup filetype_vim
+    autocmd!
+    autocmd FileType vim setlocal  foldmethod=marker
+    autocmd FileType vim setlocal  foldlevel=0
+augroup END
+" }}}
 
 " Python configuration {{{
 augroup filetype_python
@@ -152,4 +178,6 @@ augroup filetype_python
     autocmd FileType python set ts=4
     autocmd FileType python set sts=4
 augroup END
+"}}}
+
 "}}}
