@@ -23,8 +23,8 @@ set $mod Mod4
 exec synclient HorizEdgeScroll=1
 exec synclient HorizTwoFingerScroll=1
 
-bindsym $mod+F2 exec nautilus ~
-bindsym $mod+F1 exec
+#bindsym $mod+F2 exec nautilus ~
+#bindsym $mod+F1 exec
 
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
@@ -193,5 +193,5 @@ bindsym XF86MonBrightnessUp exec xbacklight -steps 1 -time 0 -inc 5
 bindsym Print exec scrot -e 'mv $f ~/Pictures/Screenshots'
 bindsym $mod + w exec firefox
 bindsym $mod + g exec gvim
-bindsym $mod + n exec ranger
+#bindsym $mod + n exec ranger
 

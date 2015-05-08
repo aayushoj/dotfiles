@@ -4,7 +4,7 @@
 "  Mapping Leader and other issues----------{{{
 "  These things are there as they are needed for plugin configurations or so i
 "  believe
-let mapleader=","
+let mapleader="," "suits me as i have been working with touch typing
 filetype plugin indent on
 set nocp
 set backspace=indent,eol,start
