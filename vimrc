@@ -122,8 +122,8 @@ nnoremap <C-k> <C-w><C-k>
 nnoremap <C-j> <C-w><C-j>
 nnoremap <C-l> <C-w><C-l>
 nnoremap <leader><space> :nohlsearch<CR>
-vnoremap jj <esc>
-inoremap jj <esc>
+vnoremap '' <esc>
+inoremap '' <esc>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q!<CR>
 nnoremap <leader>wq :wq<CR>
