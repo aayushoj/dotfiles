@@ -91,4 +91,6 @@ alias gpic="gpicview"
 alias h="cd ~"
 alias d="cd ~/dotfiles"
 alias fire="firefox"
+alias py="python"
+alias py2="python2"
 
