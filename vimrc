@@ -27,7 +27,7 @@ endif
 "set colorscheme{{{
 "Kept it separate as most of people who will use my settings will care only
 "about colorscheme
-colo badwolf
+colo Monokai-chris
 "}}}
 
 "edit vimrc/zshrc and load vimrc bindings{{{
@@ -96,7 +96,7 @@ set vb
 
 "code folding{{{
 set foldenable              " enable folding
-set foldlevelstart=0        " close all folds by default
+set foldlevelstart=10        " close all folds by default
 set foldmethod=indent       " fold based on indent level
 " }}}
 
