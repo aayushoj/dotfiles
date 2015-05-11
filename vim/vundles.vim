@@ -36,9 +36,29 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " There goes configuration of plugins
 " Even I don't know what's going on there but it's important
+" Use <leader>n to toggle NERDTree
 nmap <Leader>n <plug>NERDTreeTabsToggle<CR>
+"Use Case sensitive sort in NERDTree
+let g:NERDTreeCaseSensitiveSort=1
+"Makes Hidden file appear in start if hidden files are set to get displayed
+let g:NERDTreeSortHiddenFirst=1
+" Use WildIgnore to remove some files which are not used ussually and you
+" don't want to see them like .git
+let g:NERDTreeRespectWildIgnore=1
+" Close NERDTree whenever I open a file from it
+let g:NERDTreeQuitOnOpen=1
+" Don't like to have a statusline in NERDTree tab
+let g:NERDTreeStatusline=0
+" Set windows size to 20 it's sufficient by defualt NERDTree takes a lot of
+" area :-(
+let g:NERDTreeWinSize=20
+" Remove shitty ~ from NERDTree Tabs infact I want them to be removed vim as
+" well
+let g:NERDTreeDirArrows=1
+
 "nnoremap <C-n> :NERDTreeToggle<CR>
 autocmd QuickFixCmdPost *grep* cwindow
+
 " Syntastic Plugin configuration
 "set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
@@ -52,8 +72,9 @@ autocmd QuickFixCmdPost *grep* cwindow
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_by_filename = 1
 
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,.git     " MacOSX/Linux
 "set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 
 let g:ctrlp_custom_ignore = {
