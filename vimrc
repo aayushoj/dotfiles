@@ -153,6 +153,8 @@ inoremap <Up> <nop>
 inoremap <Down> <nop>
 cnoremap q nop<CR>
 cnoremap w nop<CR>
+nnoremap <Leader>he :read ~/codes/competitive/head.cpp<CR>
+
 "nnoremap <Left> <nop>
 "nnoremap <Up> <nop>
 "nnoremap <Down> <nop>
@@ -177,6 +179,18 @@ augroup filetype_python
     autocmd FileType python set sw=4
     autocmd FileType python set ts=4
     autocmd FileType python set sts=4
+augroup END
+"}}}
+
+"CPP Configuration {{{
+augroup filetype_CPP
+    autocmd!
+    "autocmd FileType cpp echom "Working!"
+    autocmd FileType cpp let g:cwd=getcwd()
+    "autocmd FileType cpp 
+                        "if g:cwd == '/home/aayush/codes/competitive' 
+                            "echo "put your code here"
+                        "endif
 augroup END
 "}}}
 
