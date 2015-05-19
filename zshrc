@@ -93,4 +93,5 @@ alias d="cd ~/dotfiles"
 alias fire="firefox"
 alias py="python"
 alias py2="python2"
-
+alias prog="cd ~/codes/competitive"
+alias ifconfig="ip addr"

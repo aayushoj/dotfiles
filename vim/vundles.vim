@@ -87,6 +87,7 @@ let g:ctrlp_custom_ignore = {
 set encoding=utf-8
 " Airline
 set laststatus=2
+let g:airline_theme = "luna"
 let g:airline_powerline_fonts = 1
 if isdirectory(expand("~/.vim/bundle/vim-airline/"))
             if !exists('g:airline_powerline_fonts')

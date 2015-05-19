@@ -1,6 +1,28 @@
 "Suggestions and future improvements {{{
 "}}}
 
+"Plugins i use {{{
+"Plugin 'SirVer/ultisnips' :--> snippets of code
+"Plugin 'honza/vim-snippets' :--> snippets of code
+"Plugin 'gmarik/Vundle.vim' :--> Plugin manager
+"Plugin 'benmills/vimux'    :--> not used by me yet
+"Plugin 'tpope/vim-fugitive' :-->git integration with vim
+"Plugin 'rstacruz/sparkup'   :-->Zen coding
+"Plugin 'scrooloose/nerdtree':-->file-manager for vim
+"Plugin 'tpope/vim-surround' :-->changing brackets and tags efffectively
+"Plugin 'kien/ctrlp.vim' :-->fuzzy file searcher for vim
+"Plugin 'altercation/vim-colors-solarized' :-->
+"Plugin 'bling/vim-airline'
+"Plugin 'scrooloose/nerdcommenter'
+"Plugin 'Lokaltog/vim-easymotion'
+"Plugin 'godlygeek/tabular'
+"Plugin 'tomasr/molokai'
+"Plugin 'flazz/vim-colorschemes'
+"Plugin 'jistr/vim-nerdtree-tabs'
+"Plugin 'Anthony25/gnome-terminal-colors-solarized'
+"Plugin 'othree/html5.vim'
+"Plugin 'Valloric/YouCompleteMe'
+"}}}
 "  Mapping Leader and other issues----------{{{
 "  These things are there as they are needed for plugin configurations or so i
 "  believe
@@ -27,7 +49,7 @@ endif
 "set colorscheme{{{
 "Kept it separate as most of people who will use my settings will care only
 "about colorscheme
-colo Monokai-chris
+colo Tomorrow-Night-Eighties
 "}}}
 
 "edit vimrc/zshrc and load vimrc bindings{{{
@@ -91,7 +113,6 @@ set rnu
 set cursorline              " highlight current line
 filetype indent on          " load filetype-specific indent files
 set wildmenu                " visual autocomplete for command menu
-set lazyredraw              " redraw only when we need to.
 set vb
 
 "code folding{{{
@@ -122,6 +143,7 @@ nnoremap <C-k> <C-w><C-k>
 nnoremap <C-j> <C-w><C-j>
 nnoremap <C-l> <C-w><C-l>
 nnoremap <leader><space> :nohlsearch<CR>
+"Satisfied with it a lot,close to home row and '' is almost useless
 vnoremap '' <esc>
 inoremap '' <esc>
 nnoremap <leader>w :w<CR>
@@ -134,26 +156,28 @@ vnoremap <leader>x "+x
 vnoremap <leader>p "+p
 vnoremap <leader>y "+y
 nnoremap ; :
+"Sometimes ; may be useful also u will avoid using shift + ;
+nnoremap : ;
 nnoremap <leader>hs :sp<CR>
 nnoremap <leader>vs :vsp<CR>
 nnoremap <leader>o o<esc>k
 nnoremap X v$x
 nnoremap Y v$y
-
+"this should not be here
+nnoremap <Leader>he :read ~/codes/competitive/head.cpp<CR>
 "}}}
 
 "These mappings are there to train my fingers to use my customised settings {{{
 
 inoremap <esc> <nop>
 vnoremap <esc> <nop>
-inoremap <Right> <nop>
+"inoremap <Right> <nop>
 "nnoremap <Right> <nop>
-inoremap <Left> <nop>
-inoremap <Up> <nop>
-inoremap <Down> <nop>
-cnoremap q nop<CR>
-cnoremap w nop<CR>
-nnoremap <Leader>he :read ~/codes/competitive/head.cpp<CR>
+"inoremap <Left> <nop>
+"inoremap <Up> <nop>
+"inoremap <Down> <nop>
+nnoremap :q nop<CR>
+nnoremap :w nop<CR>
 
 "nnoremap <Left> <nop>
 "nnoremap <Up> <nop>
@@ -183,12 +207,13 @@ augroup END
 "}}}
 
 "CPP Configuration {{{
+"not working properly cannot figure it out
 augroup filetype_CPP
     autocmd!
     "autocmd FileType cpp echom "Working!"
     autocmd FileType cpp let g:cwd=getcwd()
-    "autocmd FileType cpp 
-                        "if g:cwd == '/home/aayush/codes/competitive' 
+    "autocmd FileType cpp
+                        "if g:cwd == '/home/aayush/codes/competitive'
                             "echo "put your code here"
                         "endif
 augroup END
