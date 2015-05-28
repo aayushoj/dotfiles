@@ -4,6 +4,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " Track the engine.
 Plugin 'SirVer/ultisnips'
+Plugin 'davidhalter/jedi-vim'
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
 Plugin 'gmarik/Vundle.vim'
