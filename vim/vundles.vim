@@ -5,6 +5,8 @@ call vundle#begin()
 " Track the engine.
 Plugin 'SirVer/ultisnips'
 Plugin 'davidhalter/jedi-vim'
+Plugin 'Raimondi/delimitMate'
+Plugin 'sickill/vim-monokai'
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
 Plugin 'gmarik/Vundle.vim'
@@ -25,6 +27,9 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'Anthony25/gnome-terminal-colors-solarized'
 Plugin 'othree/html5.vim'
+Plugin 'reedes/vim-thematic'
+Plugin 'rking/ag.vim'
+Plugin 'mileszs/ack.vim'
 Plugin 'Valloric/YouCompleteMe'
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -85,16 +90,18 @@ let g:ctrlp_custom_ignore = {
   \ }
 
 
-set encoding=utf-8
+"set encoding=utf-8
 " Airline
 set laststatus=2
+let g:airline_encoding = "utf-8"
 let g:airline_theme = "luna"
 let g:airline_powerline_fonts = 1
 if isdirectory(expand("~/.vim/bundle/vim-airline/"))
             if !exists('g:airline_powerline_fonts')
                 " Use the default set of separators with a few customizations
-                let g:airline_left_sep='›'  " Slightly fancier than '>'
-                let g:airline_right_sep='‹' " Slightly fancier than '<'
+                echom "why?"
+                let g:airline_left_sep='>'  " Slightly fancier than '>'
+                let g:airline_right_sep='<' " Slightly fancier than '<'
             endif
         endif
 " EasyMotion

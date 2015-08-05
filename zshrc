@@ -49,7 +49,7 @@ plugins=(git)
 
 # User configuration
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/aayush/.composer/vendor/bin:/home/aayush/chess/firefox"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -79,10 +79,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias pac="sudo pacman"
-TERM=screen-256color
-if [ -z "$TMUX" ];then
-TERM=xterm-256color
-fi
+#TERM=screen-256color
+#if [ -z "$TMUX" ];then
+#TERM=xterm-256color
+#fi
 alias pi="ping 172.31.1.1"
 alias v="vim"
 alias dc="cd"
@@ -90,8 +90,10 @@ alias clr="clear"
 alias gpic="gpicview"
 alias h="cd ~"
 alias d="cd ~/dotfiles"
-alias fire="firefox"
+alias fire="./chess/firefox/firefox"
 alias py="python"
 alias py2="python2"
 alias prog="cd ~/codes/competitive"
 alias ifconfig="ip addr"
+alias g++="g++ -std=c++11"
+export PULSE_LATENCY_MSEC=60

@@ -13,7 +13,6 @@ general {
 
 order += "cpu_usage"
 order += "ipv6"
-order += "disk /"
 order += "run_watch DHCP"
 order += "run_watch VPN"
 order += "wireless wlan0"
@@ -74,6 +73,3 @@ load {
         format = "%1min"
 }
 
-disk "/" {
-        format = "%avail"
-}

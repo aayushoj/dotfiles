@@ -23,9 +23,11 @@
 "Plugin 'othree/html5.vim'
 "Plugin 'Valloric/YouCompleteMe'
 "}}}
+
 "  Mapping Leader and other issues----------{{{
 "  These things are there as they are needed for plugin configurations or so i
 "  believe
+set termencoding=utf-8
 let mapleader="," "suits me as i have been working with touch typing
 filetype plugin indent on
 set nocp
@@ -49,7 +51,10 @@ endif
 "set colorscheme{{{
 "Kept it separate as most of people who will use my settings will care only
 "about colorscheme
-colo Tomorrow-Night-Eighties
+"colo badwolf
+colo jellybeans
+"colo Tomorrow-Night-Eighties
+"colo solarized
 "}}}
 
 "edit vimrc/zshrc and load vimrc bindings{{{
@@ -102,6 +107,7 @@ nnoremap <F3> :call StripTrailingWhitespaces()<CR>
 
 "My costumisations {{{
 "set mouse=a "enable mouse
+set mouse=nv
 "I won't enable mouse for a good practice of vim motion commands
 set shiftwidth=4
 set expandtab
@@ -146,6 +152,7 @@ nnoremap <leader><space> :nohlsearch<CR>
 "Satisfied with it a lot,close to home row and '' is almost useless
 vnoremap '' <esc>
 inoremap '' <esc>
+nnoremap '' <esc>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q!<CR>
 nnoremap <leader>wq :wq<CR>
@@ -164,20 +171,21 @@ nnoremap <leader>o o<esc>k
 nnoremap X v$x
 nnoremap Y v$y
 "this should not be here
-nnoremap <Leader>he :read ~/codes/competitive/head.cpp<CR>
+nnoremap <Leader>he :read ~/codes/competitive/algos/head.cpp<CR>
 "}}}
 
 "These mappings are there to train my fingers to use my customised settings {{{
 
-inoremap <esc> <nop>
-vnoremap <esc> <nop>
+"inoremap <esc> <nop>
+"vnoremap <esc> <nop>
 "inoremap <Right> <nop>
 "nnoremap <Right> <nop>
 "inoremap <Left> <nop>
 "inoremap <Up> <nop>
 "inoremap <Down> <nop>
-nnoremap :q nop<CR>
-nnoremap :w nop<CR>
+
+nnoremap ;q nop<CR>
+nnoremap ;w nop<CR>
 
 "nnoremap <Left> <nop>
 "nnoremap <Up> <nop>
