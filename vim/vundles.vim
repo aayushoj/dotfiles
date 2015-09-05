@@ -5,12 +5,12 @@ call vundle#begin()
 " Track the engine.
 Plugin 'SirVer/ultisnips'
 Plugin 'davidhalter/jedi-vim'
-Plugin 'Raimondi/delimitMate'
+"Plugin 'Raimondi/delimitMate'
 Plugin 'sickill/vim-monokai'
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
 Plugin 'gmarik/Vundle.vim'
-Plugin 'benmills/vimux'
+"Plugin 'benmills/vimux'
 Plugin 'tpope/vim-fugitive'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'scrooloose/nerdtree'
@@ -26,10 +26,10 @@ Plugin 'tomasr/molokai'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'Anthony25/gnome-terminal-colors-solarized'
-Plugin 'othree/html5.vim'
-Plugin 'reedes/vim-thematic'
-Plugin 'rking/ag.vim'
-Plugin 'mileszs/ack.vim'
+"Plugin 'othree/html5.vim'
+"Plugin 'reedes/vim-thematic'
+"Plugin 'rking/ag.vim'
+"Plugin 'mileszs/ack.vim'
 Plugin 'Valloric/YouCompleteMe'
 call vundle#end()            " required
 filetype plugin indent on    " required

@@ -159,9 +159,9 @@ nnoremap <leader>wq :wq<CR>
 nnoremap <leader>x "+x
 nnoremap <leader>p "+p
 nnoremap <leader>y "+y
-vnoremap <leader>x "+x
-vnoremap <leader>p "+p
-vnoremap <leader>y "+y
+"vnoremap <leader>x "+x
+"vnoremap <leader>p "+p
+"vnoremap <leader>y "+y
 nnoremap ; :
 "Sometimes ; may be useful also u will avoid using shift + ;
 nnoremap : ;
