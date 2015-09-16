@@ -11,12 +11,12 @@ general {
         interval = 5
 }
 
-order += "cpu_usage"
-order += "ipv6"
-order += "run_watch DHCP"
-order += "run_watch VPN"
+#order += "cpu_usage"
+#order += "ipv6"
+#order += "run_watch DHCP"
+#order += "run_watch VPN"
 order += "wireless wlan0"
-order += "ethernet eth0"
+order += "ethernet enp7s0"
 order += "battery 0"
 order += "load"
 order += "volume master"
@@ -30,7 +30,7 @@ volume master {
 }
 
 cpu_usage {
-	format = "%usage"
+    format = "%usage"
 }
 
 wireless wlan0 {
@@ -39,13 +39,13 @@ wireless wlan0 {
 }
 
 # if you use %speed, i3status requires root privileges
-#ethernet eth0 {
-		#format_up = "E: %ip (%speed)"
-		#format_down = "E: down"
-#}
+ethernet eth0 {
+        format_up = "E: %ip (%speed)"
+        format_down = "E: down"
+}
 
-ethernet enp9s0 {
-		#format_up = "E: %ip (%speed)"
+ethernet enp7s0 {
+        #format_up = "E: %ip (%speed)"
 		format_up = "E: UP"
 		format_down = "E: down"
 }

@@ -27,7 +27,8 @@
 "  Mapping Leader and other issues----------{{{
 "  These things are there as they are needed for plugin configurations or so i
 "  believe
-set termencoding=utf-8
+"set termencoding=utf-8
+"set t_Co=256
 let mapleader="," "suits me as i have been working with touch typing
 filetype plugin indent on
 set nocp
@@ -51,8 +52,11 @@ endif
 "set colorscheme{{{
 "Kept it separate as most of people who will use my settings will care only
 "about colorscheme
-"colo badwolf
-colo jellybeans
+"hi Normal ctermbg=NONE
+"hi Normal ctermfg=NONE
+colo badwolf
+"highlight NonText ctermbg=none
+"colo jellybeans
 "colo Tomorrow-Night-Eighties
 "colo solarized
 "}}}

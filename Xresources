@@ -12,8 +12,11 @@ URxvt*jumpScroll: True
 ! URxvt colours
 URxvt*background: Black
 URxvt*foreground: White
+URxvt.transparent: true
+URxvt.shading:30
 
-
+! Included this so you know how to make your foreground not match the color of your background
+!URxvt.foreground: #000000
 !urxvt*secondaryScreen: false
 
 ! To implement clickable URLs
