@@ -1,6 +1,14 @@
 "Suggestions and future improvements {{{
 "}}}
 
+"NeoVim Separtation {{{
+if has('nvim')
+    let s:editor_root=expand("~/.config/nvim")
+else
+    let s:editor_root=expand("~/.vim")
+endif
+"}}}
+
 "Plugins i use {{{
 "Plugin 'SirVer/ultisnips' :--> snippets of code
 "Plugin 'honza/vim-snippets' :--> snippets of code
@@ -29,7 +37,9 @@
 "  believe
 "set termencoding=utf-8
 "set t_Co=256
-let mapleader="," "suits me as i have been working with touch typing
+"let mapleader="\" "suits me as i have been working with touch typing
+map <space> <leader>
+map <space><space> <leader><leader>
 filetype plugin indent on
 set nocp
 set backspace=indent,eol,start
@@ -44,8 +54,14 @@ endif
 "  Vundle Initialization {{{
 " This loads all the plugins specified in ~/.vim/vundles.vim
 " Use Vundle plugin to manage all other plugins
-if filereadable(expand("~/.vim/vundles.vim"))
-  source ~/.vim/vundles.vim
+if has('nvim')
+    if filereadable(expand("~/.config/nvim/vundles.vim"))
+      source ~/.config/nvim/vundles.vim
+    endif
+else
+    if filereadable(expand("~/.vim/vundles.vim"))
+      source ~/.vim/vundles.vim
+    endif
 endif
 " }}}
 
@@ -63,10 +79,14 @@ colo badwolf
 
 "edit vimrc/zshrc and load vimrc bindings{{{
 
-nnoremap <leader>ev :vsp $MYVIMRC<CR>
+nnoremap <leader>ev :vsp ~/.vimrc<CR>
 nnoremap <leader>ez :vsp ~/.zshrc<CR>
-nnoremap <leader>sv :source $MYVIMRC<CR>
-nnoremap <leader>ep :vsp ~/.vim/vundles.vim<CR>
+nnoremap <leader>sv :source ~/.vimrc<CR>
+if has('nvim')
+    nnoremap <leader>ep :vsp ~/.config/nvim/vundles.vim<CR>
+else
+    nnoremap <leader>ep :vsp ~/.vim/vundles.vim<CR>
+endif
 nnoremap <leader>ei :vsp ~/.i3/config<CR>
 "}}}
 
@@ -147,35 +167,35 @@ set showcmd                 " show command in bottom bar
 " Main Keymaps{{{
 
 nnoremap <C-h> <C-w><C-h>
-nnoremap <space> za
+"nnoremap <space> za
 " space open/closes folds earlier i did mistake of placing it with mapping
 nnoremap <C-k> <C-w><C-k>
 nnoremap <C-j> <C-w><C-j>
 nnoremap <C-l> <C-w><C-l>
-nnoremap <leader><space> :nohlsearch<CR>
+nnoremap <leader>h :nohlsearch<CR>
 "Satisfied with it a lot,close to home row and '' is almost useless
-vnoremap '' <esc>
-inoremap '' <esc>
-nnoremap '' <esc>
+"vnoremap '' <esc>
+"inoremap '' <esc>
+"nnoremap '' <esc>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q!<CR>
 nnoremap <leader>wq :wq<CR>
 nnoremap <leader>x "+x
 nnoremap <leader>p "+p
 nnoremap <leader>y "+y
-"vnoremap <leader>x "+x
-"vnoremap <leader>p "+p
-"vnoremap <leader>y "+y
-nnoremap ; :
+vnoremap <leader>x "+x
+vnoremap <leader>p "+p
+vnoremap <leader>y "+y
+"nnoremap ; :
 "Sometimes ; may be useful also u will avoid using shift + ;
-nnoremap : ;
-nnoremap <leader>hs :sp<CR>
-nnoremap <leader>vs :vsp<CR>
+"nnoremap : ;
+"nnoremap <leader>hs :sp<CR>
+"nnoremap <leader>vs :vsp<CR>
 nnoremap <leader>o o<esc>k
-nnoremap X v$x
-nnoremap Y v$y
+"nnoremap X v$x
+"nnoremap Y v$y
 "this should not be here
-nnoremap <Leader>he :read ~/codes/competitive/algos/head.cpp<CR>
+"nnoremap <Leader>he :read ~/codes/competitive/algos/head.cpp<CR>
 "}}}
 
 "These mappings are there to train my fingers to use my customised settings {{{
@@ -188,8 +208,8 @@ nnoremap <Leader>he :read ~/codes/competitive/algos/head.cpp<CR>
 "inoremap <Up> <nop>
 "inoremap <Down> <nop>
 
-nnoremap ;q nop<CR>
-nnoremap ;w nop<CR>
+"nnoremap ;q nop<CR>
+"nnoremap ;w nop<CR>
 
 "nnoremap <Left> <nop>
 "nnoremap <Up> <nop>
