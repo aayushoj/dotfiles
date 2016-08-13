@@ -1,49 +1,72 @@
 set nocompatible              " be iMproved, required
-filetype off                  " required
+
+function! BuildComposer(info)
+  if a:info.status != 'unchanged' || a:info.force
+    !cargo build --release
+    UpdateRemotePlugins
+  endif
+endfunction
+
 if has('nvim')
     let s:editor_root=expand('~/.nvim')
 else
     let s:editor_root=expand('~/.vim')
 endif
-let &rtp = &rtp . ',' . s:editor_root . '/bundle/Vundle.vim/'
 "set rtp+= s:editor_root.'/bundle/Vundle.vim'
-call vundle#rc(s:editor_root . '/bundle')
-call vundle#begin()
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall | source $MYVIMRC
+endif
+"call plug#rc(s:editor_root . '/bundle')
+call plug#begin()
 " Track the engine.
-Plugin 'SirVer/ultisnips'
-Plugin 'michalliu/sourcebeautify.vim'
-Plugin 'davidhalter/jedi-vim'
-"Plugin 'Raimondi/delimitMate'
-Plugin 'sickill/vim-monokai'
+Plug 'SirVer/ultisnips'
+Plug 'michalliu/sourcebeautify.vim'
+Plug 'davidhalter/jedi-vim', {'for': 'python'}
+Plug 'benekastah/Neomake'
+Plug 'rking/ag.vim'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax' 
+Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
+Plug 'Raimondi/delimitMate'
+Plug 'sickill/vim-monokai'
 " Snippets are separated from the engine. Add this if you want them:
-Plugin 'honza/vim-snippets'
-Plugin 'gmarik/Vundle.vim'
-"Plugin 'benmills/vimux'
-Plugin 'tpope/vim-fugitive'
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-Plugin 'scrooloose/nerdtree'
-Plugin 'tpope/vim-surround'
-"Plugin 'scrooloose/syntastic'
-Plugin 'kien/ctrlp.vim'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'bling/vim-airline'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'godlygeek/tabular'
-Plugin 'tomasr/molokai'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'Anthony25/gnome-terminal-colors-solarized'
-"Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'luochen1990/rainbow'
+Plug 'honza/vim-snippets'
+"Plug 'gmarik/Vundle.vim'
+Plug 'lervag/vimtex'
+"Plug 'benmills/vimux'
+Plug 'tpope/vim-fugitive'
+Plug 'rstacruz/sparkup', {'rtp': 'vim/','for': 'html'}
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-surround'
+"Plug 'scrooloose/syntastic'
+Plug 'kien/ctrlp.vim'
+"Plug 'altercation/vim-colors-solarized'
+Plug 'bling/vim-airline'
+Plug 'scrooloose/nerdcommenter'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'godlygeek/tabular'
+"Plug 'tomasr/molokai'
+Plug 'flazz/vim-colorschemes'
+Plug 'scrooloose/nerdtree' , {'on': 'NERDTreeToggle'} 
+Plug 'Anthony25/gnome-terminal-colors-solarized'
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'luochen1990/rainbow'
 let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
-"Plugin 'othree/html5.vim'
-"Plugin 'reedes/vim-thematic'
-"Plugin 'rking/ag.vim'
-"Plugin 'mileszs/ack.vim'
-Plugin 'Valloric/YouCompleteMe'
-call vundle#end()            " required
-filetype plugin indent on    " required
+Plug 'othree/html5.vim'
+Plug 'reedes/vim-thematic'
+Plug 'rking/ag.vim'
+Plug 'octol/vim-cpp-enhanced-highlight'                              " Enhanced syntax highlight for CPP files
+Plug 'sjl/gundo.vim'                                                 " Graphical undo tree
+Plug 'marcweber/vim-addon-mw-utils'                                  " Vim Addons
+Plug 'auto-pairs-gentle'                                             " Auto insert matching brackets
+Plug 'rhysd/vim-clang-format'
+Plug 'Python-Syntax-Folding'                                         " Proper syntax folding for python
+Plug 'Shougo/deoplete.nvim'
+Plug 'mileszs/ack.vim'
+Plug 'Valloric/YouCompleteMe', {'do': 'python2 install.py --clang-completer --system-libclang --system-boost'}
+call plug#end()            " required
 " Brief help
 " :PluginList       - lists configured plugins
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
@@ -172,10 +195,25 @@ let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 ""au Syntax * RainbowParenthesesLoadRound
 ""au Syntax * RainbowParenthesesLoadSquare
 "au Syntax * RainbowParenthesesLoadBraces
-"RainbowParenthesesLoadBraces 
+"RainbowParenthesesLoadBraces
 "" Commands
 "":RainbowParenthesesToggle       " Toggle it on/off
 "":RainbowParenthesesLoadRound    " (), the default when toggling
 "":RainbowParenthesesLoadSquare   " []
 "":RainbowParenthesesLoadBraces   " {}
 "":RainbowParenthesesLoadChevrons " <>
+"=============================Deoplete==========================
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
+" Use smartcase.
+let g:deoplete#enable_smart_case = 1
+
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> deoplete#mappings#smart_close_popup()."\<C-h>"
+inoremap <expr><BS>  deoplete#mappings#smart_close_popup()."\<C-h>"
+
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function() abort
+  return deoplete#mappings#close_popup() . "\<CR>"
+endfunction

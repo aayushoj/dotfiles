@@ -9,27 +9,40 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
+#Modified by me for borders
+#hide_edge_borders vertical
+new_window pixel 1
 set $mod Mod4
+
+set $oth Mod1
+set $TERMINAL urxvt
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 #font pango:monospace 8
 #setting wallpaper
-#exec --no-startup-id feh --bg-fill ~/Downloads/wallpaper.jpg
+exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/NewCollection/Vendetta.jpg
 
 
 
+# Configuration for urxvt terminal
+exec xrdb -merge /home/aayush2/.Xresources
+exec --no-startup-id nm-applet
 # Allowing horizontal scrolling
 exec synclient HorizEdgeScroll=1
 exec synclient HorizTwoFingerScroll=1
 
 #bindsym $mod+F2 exec nautilus ~
 #bindsym $mod+F1 exec
+#Screen Lock
+#bindsym $mod+space exec i3lock -i ~/Pictures/screensaver.png
+bindsym $mod+space exec i3lock -c "#000000"
+bindsym $mod+g exec gnome-control-center
 
-
+#bindsym $mod+e exec evince
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVu Sans Mono 8
+font pango:DejaVu 9
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -42,13 +55,16 @@ font pango:DejaVu Sans Mono 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec gnome-terminal
+#bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+# bindsym $mod+d exec j4-dmenu-desktop
+#
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -dmenu -p "run: "'
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -61,10 +77,10 @@ bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
-#bindsym $mod+Left focus left
-#bindsym $mod+Down focus down
-#bindsym $mod+Up focus up
-#bindsym $mod+Right focus right
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
 
 # move focused window
 bindsym $mod+Shift+h move left
@@ -73,43 +89,47 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
-#bindsym $mod+Shift+Left move left
-#bindsym $mod+Shift+Down move down
-#bindsym $mod+Shift+Up move up
-#bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+- split h
+bindsym $mod+x split h
 
 # split in vertical orientation
-bindsym $mod+% split v
+bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-#bindsym $mod+s layout stacking
-#bindsym $mod+w layout tabbed
-#bindsym $mod+e layout toggle split
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
 
+bindsym $mod+Shift+a [ title="VIM"] focus
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+#bindsym $mod+space focus mode_toggle
 
-# focus the parent container
+# focus the parent con:tainer
 bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
-set $tag1 "useless"
-set $tag2 "code"
-set $tag3 "web"
-set $tag4 "pdf"
-set $tag5 "music"
-set $tag0 "settings"
-set $tag6 "chess"
+set $tag1 ":Fun"
+set $tag2 ":Code"
+set $tag3 ":Web"
+set $tag4 ":PDF"
+set $tag5 ":Files"
+set $tag0 ":Settings"
+set $tag6 "♞:Chess"
+set $tag7 ":Music"
 # switch to workspace
 bindsym $mod+1 workspace $tag1
 bindsym $mod+2 workspace $tag2
@@ -117,24 +137,30 @@ bindsym $mod+3 workspace $tag3
 bindsym $mod+4 workspace $tag4
 bindsym $mod+5 workspace $tag5
 bindsym $mod+6 workspace $tag6
-bindsym $mod+7 workspace 7
+bindsym $mod+7 workspace $tag7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace $tag0
-
+for_window [class="^.*"] border normal
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $tag1
 bindsym $mod+Shift+2 move container to workspace $tag2
 bindsym $mod+Shift+3 move container to workspace $tag3
 bindsym $mod+Shift+4 move container to workspace $tag4
 bindsym $mod+Shift+5 move container to workspace $tag5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+6 move container to workspace $tag6
+bindsym $mod+Shift+7 move container to workspace $tag7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace $tag0
 
+# Toggle between hide state and show state
+bindsym $mod+m bar hidden_state toggle
+
+# Toggle between dock mode and hide mode
+bindsym $mod+n bar mode toggle
 # reload the configuration file
+
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
@@ -149,16 +175,30 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        #bindsym Left resize shrink width 5 px or 5 ppt
+        #bindsym Ctrl+Left resize shrink width 15 px or 15 ppt
+
+        bindsym h resize shrink width 5 px or 5 ppt
+        bindsym j resize grow height 5 px or 5 ppt
+        bindsym k resize shrink height 5 px or 5 ppt
+        bindsym l resize grow width 5 px or 5 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left resize shrink width 5 px or 5 ppt
+        bindsym Down resize grow height 5 px or 5 ppt
+        bindsym Up resize shrink height 5 px or 5 ppt
+        bindsym Right resize grow width 5 px or 5 ppt
+
+        bindsym Shift+h resize shrink width 15 px or 15 ppt
+        bindsym Shift+j resize grow height 15 px or 15 ppt
+        bindsym Shift+k resize shrink height 15 px or 15 ppt
+        bindsym Shift+l resize grow width 15 px or 15 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Shift+Left resize shrink width 15 px or 15 ppt
+        bindsym Shift+Down resize grow height 15 px or 15 ppt
+        bindsym Shift+Up resize shrink height 15 px or 15 ppt
+        bindsym Shift+Right resize grow width 15 px or 15 ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -170,28 +210,95 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-		mode dock
-		#position top
-		workspace_buttons yes
-		#status_command i3status -c ~/.i3/i3status
-		status_command ~/.conky/initscript
-		#status_command i3blocks
-		#status_command ~/.i3/dzen2.sh
-		#font -*-terminus-medium-r-*-*-18-*-*-*-*-*-iso10646-*
-		tray_output LVDS
-		colors{
-			background #232323
-				statusline #DCDCDC
-		}
-
+  mode dock
+        position top
+        #workspace_buttons yes
+        #status_command i3status -c ~/.i3/i3status
+        #status_command ~/.conky/initscript
+        status_command    python ~/.i3/i3pystatus
+        #status_command i3blocks
+        #status_command ~/.i3/dzen2.sh
+        #font -*-terminus-medium-r-*-*-18-*-*-*-*-*-iso10646-*
+        tray_output LVDS
+        font xft: Cousine, Font-Awesome 9
+  colors {
+    separator #666666
+    background #000000
+    statusline #ffffff
+    focused_workspace #4c7899 #285577 #ffffff
+    active_workspace #333333 #5f676a #ffffff
+    inactive_workspace #333333 #222222 #888888
+    urgent_workspace #2f343a #900000 #ffffff
+  }
 }
-# brightness control
-bindsym XF86MonBrightnessDown exec xbacklight -steps 1 -time 0 -dec 5
-bindsym XF86MonBrightnessUp exec xbacklight -steps 1 -time 0 -inc 5
+
 
 # Multimedia Keys
-bindsym Print exec scrot -e 'mv $f ~/Pictures/Screenshots'
-bindsym $mod + w exec firefox
-bindsym $mod + g exec gvim
-#bindsym $mod + n exec ranger
 
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec light -A 10 # increase screen brightness
+bindsym XF86MonBrightnessDown exec light -U 10 # decrease screen brightness
+
+# Audio settings
+
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+
+bindsym XF86AudioLowerVolume exec amixer -q set Master 5%-
+bindsym XF86AudioMute exec amixer -D pulse set Master 1+ toggle
+
+#Pulse Audio controls
+#bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5% increase sound volume
+#bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -- -5% decrease sound volume
+
+# Shortcuts for daily use softwares
+bindsym Print exec scrot -e 'mv $f ~/Pictures/Screenshots'
+#bindsym $mod + w exec firefox-developer
+#bindsym $mod + g exec gvim
+#bindsym $mod + n exec ranger
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (p) shutdown
+mode "$mode_system" {
+
+#bindsym $mod+space exec i3lock -i ~/Pictures/Wallpapers/sherlock.png
+    bindsym l exec --no-startup-id i3lock -c "#000000", mode "default"
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym s exec --no-startup-id systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id systemctl hibernate, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym p exec --no-startup-id systemctl poweroff, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $oth+F4 mode "$mode_system"
+
+# My new tweaks
+
+mode "App launch" {
+#bindsym p exec pcmanfm
+bindsym f exec firefox-nightly
+bindsym q exec qbittorrent
+bindsym v exec vlc
+bindsym c exec chromium
+bindsym g exec google-chrome-unstable
+bindsym s exec subl3
+bindsym e exec evince
+bindsym n exec nautilus
+bindsym t exec i3-sensible-terminal
+
+bindsym Return mode "default"
+bindsym Escape mode "default"
+}
+bindsym $oth+x mode "App launch"
+# Quick Window movement
+# bindsym $mod+Ctrl+Left move left 40px
+
+client.focused #4c7899 #285577 #ffffff #2e9ef4
+client.focused_inactive #333333 #5f676a #ffffff #484e50
+client.unfocused #333333 #222222 #888888 #292d2e
+client.urgent #2f343a #900000 #ffffff #900000
