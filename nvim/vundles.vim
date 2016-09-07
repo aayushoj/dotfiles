@@ -73,11 +73,18 @@ call plug#end()            " required
 " :PluginSearch foo - searches for foo; append `!` to refresh local cache
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '//'} }
 " see :h vundle for more details or wiki for FAQ
 " There goes configuration of plugins
 " Even I don't know what's going on there but it's important
 " Use <leader>n to toggle NERDTree
-nmap <Leader>n <plug>NERDTreeTabsToggle<CR>
+nmap <Leader>n <plug>NERDTreeToggle<CR>
 "Use Case sensitive sort in NERDTree
 let g:NERDTreeCaseSensitiveSort=1
 "Makes Hidden file appear in start if hidden files are set to get displayed
