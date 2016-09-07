@@ -9,3 +9,5 @@ alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 
 alias pac='sudo pacman -S'
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
