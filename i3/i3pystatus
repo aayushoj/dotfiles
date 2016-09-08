@@ -63,17 +63,17 @@ status.register("battery",
 # (defaults of format_down and color_down)
 #
 # Note: the network module requires PyPI package netifaces
-    # format_up="{v4cidr}",
-# status.register("network",
-    # interface="enp7s0",
-    # format_up="ON",
-    # format_down="OFF",)
+status.register("network",
+    interface="enp7s0",
+    #format_up="{v4cidr}",
+    format_up="ON",
+    format_down="OFF",)
 
 # Note: requires both netifaces and basiciw (for essid and quality)
-# status.register("network",
-#     interface="wlp8s0",
-#     format_up=" {essid}{quality:3.0f}%",
-#     format_down="OFF",)
+status.register("network",
+    interface="wlp8s0",
+    format_up=" {essid}{quality:3.0f}%",
+    format_down="OFF",)
 
 # Shows disk usage of /
 # Format:

@@ -215,8 +215,8 @@ bar {
         #workspace_buttons yes
         #status_command i3status -c ~/.i3/i3status
         #status_command ~/.conky/initscript
-        status_command    python ~/.i3/i3pystatus
-        #status_command i3blocks
+        # status_command    python ~/.i3/i3pystatus
+        status_command SCRIPT_DIR=~/.i3/i3blockets i3blocks
         #status_command ~/.i3/dzen2.sh
         #font -*-terminus-medium-r-*-*-18-*-*-*-*-*-iso10646-*
         tray_output LVDS
@@ -246,14 +246,14 @@ bindsym XF86MonBrightnessUp exec light -A 10 # increase screen brightness
 bindsym XF86MonBrightnessDown exec light -U 10 # decrease screen brightness
 
 # Audio settings
+# change volume or toggle mute
+bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle && pkill -RTMIN+1 i3blocks
 
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+
-bindsym XF86AudioLowerVolume exec amixer -q set Master 5%-
-bindsym XF86AudioMute exec amixer -D pulse set Master 1+ toggle
-
-#Pulse Audio controls
-#bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5% increase sound volume
-#bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -- -5% decrease sound volume
+#Key Controls
+bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
+bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 
 # Shortcuts for daily use softwares
 bindsym Print exec scrot -e 'mv $f ~/Pictures/Screenshots'
