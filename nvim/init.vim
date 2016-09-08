@@ -1,14 +1,6 @@
 "Suggestions and future improvements {{{
 "}}}
 
-"NeoVim Separtation {{{
-if has('nvim')
-    let s:editor_root=expand("~/.config/nvim")
-else
-    let s:editor_root=expand("~/.vim")
-endif
-"}}}
-
 "Plugins i use {{{
 "Plugin 'SirVer/ultisnips' :--> snippets of code
 "Plugin 'honza/vim-snippets' :--> snippets of code
@@ -42,13 +34,7 @@ map <space> <leader>
 map <space><space> <leader><leader>
 filetype plugin indent on
 set nocp
-set backspace=indent,eol,start
-"}}}
-
-" source ~/.vimrc.before if it exists. {{{
-if filereadable(expand("~/.vimrc.before"))
-  source ~/.vimrc.before
-endif
+" set backspace=indent,eol,start
 "}}}
 
 "  Vundle Initialization {{{
@@ -70,9 +56,9 @@ endif
 "about colorscheme
 "hi Normal ctermbg=NONE
 "hi Normal ctermfg=NONE
-"colo badwolf
+colo badwolf
 "highlight NonText ctermbg=none
-colo jellybeans
+"colo jellybeans
 "colo Tomorrow-Night-Eighties
 "colo solarized
 "}}}
@@ -173,8 +159,6 @@ nnoremap <C-k> <C-w><C-k>
 nnoremap <C-j> <C-w><C-j>
 nnoremap <C-l> <C-w><C-l>
 nnoremap <leader>h :nohlsearch<CR>
-vnoremap > >gv
-vnoremap < <gv
 "Satisfied with it a lot,close to home row and '' is almost useless
 "vnoremap '' <esc>
 "inoremap '' <esc>
@@ -289,18 +273,6 @@ augroup filetype_python
 augroup END
 "}}}
 
-"CPP Configuration {{{
-"not working properly cannot figure it out
-augroup filetype_CPP
-    autocmd!
-    "autocmd FileType cpp echom "Working!"
-    autocmd FileType cpp let g:cwd=getcwd()
-    "autocmd FileType cpp
-                        "if g:cwd == '/home/aayush/codes/competitive'
-                            "echo "put your code here"
-                        "endif
-augroup END
-"}}}
 
 "}}}
 

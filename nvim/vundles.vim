@@ -13,59 +13,60 @@ else
     let s:editor_root=expand('~/.vim')
 endif
 "set rtp+= s:editor_root.'/bundle/Vundle.vim'
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall | source $MYVIMRC
-endif
+" if empty(glob('~/.vim/autoload/plug.vim'))
+"   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+"     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+"   autocmd VimEnter * PlugInstall | source $MYVIMRC
+" endif
 "call plug#rc(s:editor_root . '/bundle')
 call plug#begin()
-" Track the engine.
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'SirVer/ultisnips'
-Plug 'michalliu/sourcebeautify.vim'
 Plug 'davidhalter/jedi-vim', {'for': 'python'}
 Plug 'benekastah/Neomake'
 Plug 'rking/ag.vim'
-Plug 'vim-pandoc/vim-pandoc'
-Plug 'vim-pandoc/vim-pandoc-syntax' 
-Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
-Plug 'Raimondi/delimitMate'
-Plug 'sickill/vim-monokai'
-" Snippets are separated from the engine. Add this if you want them:
-Plug 'honza/vim-snippets'
-"Plug 'gmarik/Vundle.vim'
-Plug 'lervag/vimtex'
-"Plug 'benmills/vimux'
-Plug 'tpope/vim-fugitive'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/','for': 'html'}
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-surround'
-"Plug 'scrooloose/syntastic'
-Plug 'kien/ctrlp.vim'
-"Plug 'altercation/vim-colors-solarized'
+Plug 'sickill/vim-monokai'
 Plug 'bling/vim-airline'
 Plug 'scrooloose/nerdcommenter'
 Plug 'Lokaltog/vim-easymotion'
-Plug 'godlygeek/tabular'
-"Plug 'tomasr/molokai'
 Plug 'flazz/vim-colorschemes'
-Plug 'scrooloose/nerdtree' , {'on': 'NERDTreeToggle'} 
+Plug 'scrooloose/nerdtree' , {'on': 'NERDTreeToggle'}
 Plug 'Anthony25/gnome-terminal-colors-solarized'
-Plug 'kien/rainbow_parentheses.vim'
-Plug 'luochen1990/rainbow'
-let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'othree/html5.vim'
 Plug 'reedes/vim-thematic'
 Plug 'rking/ag.vim'
-Plug 'octol/vim-cpp-enhanced-highlight'                              " Enhanced syntax highlight for CPP files
-Plug 'sjl/gundo.vim'                                                 " Graphical undo tree
-Plug 'marcweber/vim-addon-mw-utils'                                  " Vim Addons
-Plug 'auto-pairs-gentle'                                             " Auto insert matching brackets
-Plug 'rhysd/vim-clang-format'
-Plug 'Python-Syntax-Folding'                                         " Proper syntax folding for python
-Plug 'Shougo/deoplete.nvim'
-Plug 'mileszs/ack.vim'
-Plug 'Valloric/YouCompleteMe', {'do': 'python2 install.py --clang-completer --system-libclang --system-boost'}
+" Plug 'michalliu/sourcebeautify.vim'
+" Plug 'godlygeek/tabular'
+" Plug 'vim-pandoc/vim-pandoc'
+" Plug 'vim-pandoc/vim-pandoc-syntax'
+" Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
+" Plug 'Raimondi/delimitMate'
+" Snippets are separated from the engine. Add this if you want them:
+" Plug 'honza/vim-snippets'
+"Plug 'gmarik/Vundle.vim'
+" Plug 'lervag/vimtex'
+"Plug 'benmills/vimux'
+" Plug 'tpope/vim-fugitive'
+"Plug 'scrooloose/syntastic'
+" Plug 'kien/ctrlp.vim'
+"Plug 'altercation/vim-colors-solarized'
+"Plug 'tomasr/molokai'
+" Plug 'kien/rainbow_parentheses.vim'
+" Plug 'luochen1990/rainbow'
+" let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
+" Plug 'octol/vim-cpp-enhanced-highlight'                              " Enhanced syntax highlight for CPP files
+" Plug 'sjl/gundo.vim'                                                 " Graphical undo tree
+" Plug 'marcweber/vim-addon-mw-utils'                                  " Vim Addons
+" Plug 'auto-pairs-gentle'                                             " Auto insert matching brackets
+" Plug 'rhysd/vim-clang-format'
+" Plug 'Python-Syntax-Folding'                                         " Proper syntax folding for python
+" Plug 'mileszs/ack.vim'
+" Plug 'Valloric/YouCompleteMe', {'do': 'python2 install.py --clang-completer --system-libclang --system-boost'}
 call plug#end()            " required
 " Brief help
 " :PluginList       - lists configured plugins
@@ -209,6 +210,17 @@ let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 "":RainbowParenthesesLoadSquare   " []
 "":RainbowParenthesesLoadBraces   " {}
 "":RainbowParenthesesLoadChevrons " <>
+"=============================FZF===============================
+" Mapping selecting mappings
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+
+" Insert mode completion
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
 "=============================Deoplete==========================
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
