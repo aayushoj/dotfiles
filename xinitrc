@@ -1,2 +1,2 @@
-xrdb -merge /home/saksham/.Xresources
+xrdb -merge /home/aayush2/.Xresources
 exec i3

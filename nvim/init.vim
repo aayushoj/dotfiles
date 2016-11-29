@@ -56,10 +56,10 @@ endif
 "about colorscheme
 "hi Normal ctermbg=NONE
 "hi Normal ctermfg=NONE
-colo badwolf
+"colo badwolf
 "highlight NonText ctermbg=none
 "colo jellybeans
-"colo Tomorrow-Night-Eighties
+colo Tomorrow-Night-Eighties
 "colo solarized
 "}}}
 
@@ -172,6 +172,8 @@ nnoremap <leader>y "+y
 vnoremap <leader>x "+x
 vnoremap <leader>p "+p
 vnoremap <leader>y "+y
+vnoremap > >gv
+vnoremap < <gv
 "nnoremap ; :
 "Sometimes ; may be useful also u will avoid using shift + ;
 "nnoremap : ;

@@ -72,8 +72,8 @@ endif
 "hi Normal ctermfg=NONE
 "colo badwolf
 "highlight NonText ctermbg=none
-colo jellybeans
-"colo Tomorrow-Night-Eighties
+"colo jellybeans
+colo Tomorrow-Night-Eighties
 "colo solarized
 "}}}
 

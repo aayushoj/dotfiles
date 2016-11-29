@@ -40,6 +40,8 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'othree/html5.vim'
 Plug 'reedes/vim-thematic'
 Plug 'rking/ag.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter', {'do': 'GitGutterEnable' }
 " Plug 'michalliu/sourcebeautify.vim'
 " Plug 'godlygeek/tabular'
 " Plug 'vim-pandoc/vim-pandoc'
@@ -56,9 +58,8 @@ Plug 'rking/ag.vim'
 " Plug 'kien/ctrlp.vim'
 "Plug 'altercation/vim-colors-solarized'
 "Plug 'tomasr/molokai'
-" Plug 'kien/rainbow_parentheses.vim'
-" Plug 'luochen1990/rainbow'
-" let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'luochen1990/rainbow'
 " Plug 'octol/vim-cpp-enhanced-highlight'                              " Enhanced syntax highlight for CPP files
 " Plug 'sjl/gundo.vim'                                                 " Graphical undo tree
 " Plug 'marcweber/vim-addon-mw-utils'                                  " Vim Addons
@@ -75,6 +76,7 @@ call plug#end()            " required
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 
 
+let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
 " Align line-wise comment delimiters flush left instead of following code indentation
