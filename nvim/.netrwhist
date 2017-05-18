@@ -1,8 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_cnt =7
 let g:netrw_dirhist_1='/home/aayush2/STUDY/CS771/Project/HaarCascadesAttempt/negative'
 let g:netrw_dirhist_2='/home/aayush2/STUDY/CS641/Assignment/Ass6'
 let g:netrw_dirhist_3='/home/aayush2/STUDY/CS425/Codes/.git'
 let g:netrw_dirhist_4='/home/aayush2/dotfiles/vim/bundle/vim-snippets'
 let g:netrw_dirhist_5='/home/aayush2/dotfiles/.git'
 let g:netrw_dirhist_6='/home/aayush2/Behance/OnlyEvaluationCodes'
+let g:netrw_dirhist_7='/home/aayush2/build/HomePage/vitae/_includes'

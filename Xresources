@@ -13,7 +13,7 @@ URxvt*jumpScroll: True
 URxvt*background: Black
 URxvt*foreground: White
 URxvt.transparent: true
-URxvt.shading:0
+URxvt.shading: 20
 
 ! Included this so you know how to make your foreground not match the color of your background
 !URxvt.foreground: #000000
