@@ -41,7 +41,7 @@ let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
 "Plugin 'reedes/vim-thematic'
 "Plugin 'rking/ag.vim'
 "Plugin 'mileszs/ack.vim'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 call vundle#end()            " required
 filetype plugin indent on    " required
 " Brief help
