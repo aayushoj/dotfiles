@@ -73,8 +73,8 @@ endif
 "colo badwolf
 "highlight NonText ctermbg=none
 "colo jellybeans
-colo Tomorrow-Night-Eighties
-"colo solarized
+" colo Tomorrow-Night-Eighties
+colo solarized
 "}}}
 
 "edit vimrc/zshrc and load vimrc bindings{{{
