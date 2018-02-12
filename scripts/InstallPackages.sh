@@ -12,7 +12,7 @@ sudo apt-fast update
 TEXT_EDITORS=" gedit vim neovim python-dev python-pip python3-dev python3-pip code git "
 
 ###### development tools
-DEV_TOOLS="build-essential python-dev git nodejs-legacy npm gnome-tweak-tool openjdk-8-jdk"
+DEV_TOOLS="build-essential python-dev git tig nodejs-legacy npm gnome-tweak-tool openjdk-8-jdk"
 
 ### Python packages
 PY_PACKAGES="python-pip python-virtualenv python-numpy python-matplotlib"
