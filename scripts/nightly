@@ -1,5 +1,0 @@
-x=`pwd`
-cd ~/chess/firefox
-./firefox
-cd `echo $x`
-
