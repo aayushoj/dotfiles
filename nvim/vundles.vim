@@ -8,7 +8,7 @@ function! BuildComposer(info)
 endfunction
 
 if has('nvim')
-    let s:editor_root=expand('~/.nvim')
+    let s:editor_root=expand('~/.config/nvim')
 else
     let s:editor_root=expand('~/.vim')
 endif
@@ -19,7 +19,7 @@ endif
 "   autocmd VimEnter * PlugInstall | source $MYVIMRC
 " endif
 "call plug#rc(s:editor_root . '/bundle')
-call plug#begin()
+call plug#begin('~/.config/nvim/plugged')
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'SirVer/ultisnips'

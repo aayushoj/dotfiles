@@ -97,3 +97,5 @@ alias prog="cd ~/codes/competitive"
 alias ifconfig="ip addr"
 alias g++="g++ -std=c++11"
 export PULSE_LATENCY_MSEC=60
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
