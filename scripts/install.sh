@@ -7,8 +7,8 @@
 ########## Variables
 
 dir=~/Github/dotfiles                    # dotfiles directory
+files="bashrc vimrc tmux.conf"    # list of files/folders to symlink in homedir
 olddir=~/Github/dotfiles_old             # old dotfiles backup directory
-files="bashrc vimrc zshrc tmux.conf"    # list of files/folders to symlink in homedir
 
 ##########
 
